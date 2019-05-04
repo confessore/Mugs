@@ -39,9 +39,9 @@ namespace Mugs.ViewModels
                 string json = string.Empty;
                 using (var client = new HttpClient())
                 {
-                    json = await client.GetStringAsync("http://10.0.2.2:57556/api/values/");
-                    Console.WriteLine(json);
-                    //inmates = JsonConvert.DeserializeObject<List<Inmate>>(json);
+                    json = await client.GetStringAsync("http://10.0.2.2/api/values/");
+                    //Console.WriteLine(json);
+                    inmates = JsonConvert.DeserializeObject<List<Inmate>>(json);
                     //Console.WriteLine(inmates);
                 }
                 foreach (var inmate in inmates)
