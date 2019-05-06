@@ -4,11 +4,37 @@
              x:Class="Mugs.Views.InmateDetailPage"
              Title="{Binding Title}">
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Inmate.BookingNumber}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Inmate.Name}" FontSize="Small"/>
-    </StackLayout>
-    
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Booking Number:" FontSize="Medium" />
+            <Label Text="{Binding Inmate.BookingNumber}" FontSize="Small"/>
+            <Label Text="Date of Booking:" FontSize="Medium" />
+            <Label Text="{Binding Inmate.DateOfBooking}" FontSize="Small"/>
+            <Label Text="County:" FontSize="Medium" />
+            <Label Text="{Binding Inmate.County}" FontSize="Small"/>
+            <Label Text="Date of Birth:" FontSize="Medium" />
+            <Label Text="{Binding Inmate.DateOfBirth}" FontSize="Small"/>
+            <Label Text="Age:" FontSize="Medium" />
+            <Label Text="{Binding Inmate.Age}" FontSize="Small"/>
+            <Label Text="Gender:" FontSize="Medium" />
+            <Label Text="{Binding Inmate.Gender}" FontSize="Small"/>
+            <Label Text="Race:" FontSize="Medium" />
+            <Label Text="{Binding Inmate.Race}" FontSize="Small"/>
+            <Label Text="Charges:" FontSize="Medium" />
+            <ListView ItemsSource="{Binding Inmate.Charges}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding ViolationCode}" FontSize="Small"/>
+                                <Label Text="{Binding ViolationDescription}" FontSize="Small"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ScrollView>
+
 </ContentPage>

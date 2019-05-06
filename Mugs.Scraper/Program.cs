@@ -112,6 +112,7 @@ namespace Mugs.Scraper
                     inmate.Charges.Add(charge);
                 InsertInmate(inmate);
                 Console.WriteLine($"[{DateTime.Now}]    added inmate    [{inmate.Name}]");
+                Thread.Sleep(1000);
             }
         }
 
@@ -125,6 +126,7 @@ namespace Mugs.Scraper
             var response = Get(url);
             var doc = GetHtmlDocumentFromString(response);
             IterateInmates(url, doc);
+            Thread.Sleep(5000);
             for (int i = 2; i < GetTotalPages(doc) + 1; i++)
             {
                 var html = GetHtmlDocumentFromString(response);
@@ -206,8 +208,8 @@ namespace Mugs.Scraper
                 tmp.Add(
                     new Charge
                     {
-                        ViolationCode = node.SelectSingleNode("//b[.='Violation Code:']/following-sibling::text()").InnerText.Trim(),
-                        ViolationDescription = node.SelectSingleNode("//b[.='Violation Description:']/following-sibling::text()").InnerText.Trim()
+                        ViolationCode = node.SelectSingleNode($"{node.XPath}/b[.='Violation Code:']/following-sibling::text()").InnerText.Trim(),
+                        ViolationDescription = node.SelectSingleNode($"{node.XPath}/b[.='Violation Description:']/following-sibling::text()").InnerText.Trim(),
                     });
             }
             return tmp;

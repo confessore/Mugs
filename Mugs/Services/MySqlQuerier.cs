@@ -25,7 +25,7 @@ namespace Mugs.Services
             return await Task.Run(async () =>
             {
                 var values = new List<Inmate>();
-                string sql = "SELECT * FROM ocala ORDER BY DateOfBooking DESC LIMIT 2000";
+                string sql = "SELECT * FROM ocala ORDER BY DateOfBooking DESC LIMIT 5";
                 using (MySqlConnection connection = new MySqlConnection(Options.DefaultConnection))
                 {
                     connection.Open();
