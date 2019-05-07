@@ -1,12 +1,9 @@
 ﻿using Mugs.Models;
-using Mugs.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -40,15 +37,10 @@ namespace Mugs.ViewModels
                 using (var client = new HttpClient())
                 {
                     json = await client.GetStringAsync("http://10.0.2.2/api/values/");
-                    //Console.WriteLine(json);
                     inmates = JsonConvert.DeserializeObject<List<Inmate>>(json);
-                    //Console.WriteLine(inmates);
                 }
                 foreach (var inmate in inmates)
-                {
-                    Console.WriteLine(inmate);
                     Inmates.Add(inmate);
-                }
             }
             catch (Exception ex)
             {

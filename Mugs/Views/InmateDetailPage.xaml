@@ -6,6 +6,11 @@
 
     <ScrollView>
         <StackLayout Spacing="20" Padding="15">
+            <Image>
+                <Image.Source>
+                    <UriImageSource Uri="{Binding Inmate.ImageUrl}"/>
+                </Image.Source>
+            </Image>
             <Label Text="Booking Number:" FontSize="Medium" />
             <Label Text="{Binding Inmate.BookingNumber}" FontSize="Small"/>
             <Label Text="Date of Booking:" FontSize="Medium" />
@@ -21,7 +26,10 @@
             <Label Text="Race:" FontSize="Medium" />
             <Label Text="{Binding Inmate.Race}" FontSize="Small"/>
             <Label Text="Charges:" FontSize="Medium" />
-            <ListView ItemsSource="{Binding Inmate.Charges}">
+            <ListView 
+                ItemsSource="{Binding Inmate.Charges}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

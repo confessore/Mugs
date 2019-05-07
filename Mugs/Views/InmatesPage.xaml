@@ -18,11 +18,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding BookingNumber}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                        <StackLayout Spacing="20" Padding="10">
+                            <Image>
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding Inmate.ImageUrl}"/>
+                                </Image.Source>
+                            </Image>
                             <Label Text="{Binding Name}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
