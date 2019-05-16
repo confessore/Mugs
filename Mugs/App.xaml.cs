@@ -11,8 +11,7 @@ namespace Mugs
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            DependencyService.Register<MySqlQuerier>();
+            DependencyService.Register<HtmlParser>();
             MainPage = new MainPage();
         }
 

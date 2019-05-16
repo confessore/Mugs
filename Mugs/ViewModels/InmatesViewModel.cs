@@ -1,10 +1,8 @@
-﻿using Mugs.Models;
-using Newtonsoft.Json;
+﻿using HtmlAgilityPack;
+using Mugs.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -14,6 +12,10 @@ namespace Mugs.ViewModels
     {
         public ObservableCollection<Inmate> Inmates { get; set; }
         public Command LoadInmatesCommand { get; set; }
+        public HtmlDocument Document { get; set; }
+        public string FormData { get; set; }
+
+        public string url = "http://www.mugshotsocala.com/";
 
         public InmatesViewModel()
         {
@@ -32,14 +34,8 @@ namespace Mugs.ViewModels
             try
             {
                 Inmates.Clear();
-                var inmates = new List<Inmate>();
-                string json = string.Empty;
-                using (var client = new HttpClient())
-                {
-                    json = await client.GetStringAsync("http://10.0.2.2/api/values/");
-                    inmates = JsonConvert.DeserializeObject<List<Inmate>>(json);
-                }
-                foreach (var inmate in inmates)
+                Document = HtmlParser.GetHtmlDocumentFromUrl(url);
+                foreach (var inmate in HtmlParser.PartialParseInmatesOnPage(url, Document))
                     Inmates.Add(inmate);
             }
             catch (Exception ex)

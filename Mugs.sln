@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mugs", "Mugs\Mugs.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mugs.Android", "Mugs.Android\Mugs.Android.csproj", "{907F94E7-A666-4E92-9972-02CEEE3C1E47}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mugs.Scraper", "Mugs.Scraper\Mugs.Scraper.csproj", "{BBD70045-ECDA-46E4-8709-4CCE3BE28978}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mugs.Web", "Mugs.Web\Mugs.Web.csproj", "{9000EF72-0160-43EB-AEDD-9474E36A3C0B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,14 +23,6 @@ Global
 		{907F94E7-A666-4E92-9972-02CEEE3C1E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{907F94E7-A666-4E92-9972-02CEEE3C1E47}.Release|Any CPU.Build.0 = Release|Any CPU
 		{907F94E7-A666-4E92-9972-02CEEE3C1E47}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{BBD70045-ECDA-46E4-8709-4CCE3BE28978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBD70045-ECDA-46E4-8709-4CCE3BE28978}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBD70045-ECDA-46E4-8709-4CCE3BE28978}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBD70045-ECDA-46E4-8709-4CCE3BE28978}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9000EF72-0160-43EB-AEDD-9474E36A3C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9000EF72-0160-43EB-AEDD-9474E36A3C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9000EF72-0160-43EB-AEDD-9474E36A3C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9000EF72-0160-43EB-AEDD-9474E36A3C0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

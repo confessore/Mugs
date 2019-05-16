@@ -1,5 +1,4 @@
-﻿using Mugs.Models;
-using Mugs.Services;
+﻿using Mugs.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,7 @@ namespace Mugs.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Inmate> DataStore => DependencyService.Get<IDataStore<Inmate>>() ?? new MockDataStore();
+        public IHtmlParser HtmlParser => DependencyService.Get<IHtmlParser>();
 
         bool isBusy = false;
         public bool IsBusy
