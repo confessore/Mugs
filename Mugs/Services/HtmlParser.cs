@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace Mugs.Services
@@ -112,7 +113,7 @@ namespace Mugs.Services
                     BookingUrl = GetInmateBookingUrl(url, node),
                     Name = GetInmateName(document, node),
                     DateOfBooking = GetInmateDateOfBooking(document, node),
-                    ImageUrl = GetInmateImageUrl(url, document, node)
+                    ImageUrl = GetInmateImageUrl(url, document, node),
                 };
                 tmp.Add(inmate);
             }

@@ -1,8 +1,5 @@
-﻿using HtmlAgilityPack;
-using Mugs.Models;
-using Mugs.Services;
+﻿using Mugs.Models;
 using Mugs.ViewModels;
-using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -33,9 +30,9 @@ namespace Mugs.Views
             ItemsListView.SelectedItem = null;
         }
 
-        async void OnItemAppearing(object sender, ItemVisibilityEventArgs args)
+        void OnItemAppearing(object sender, ItemVisibilityEventArgs args)
         {
-            if (args.ItemIndex + 1 == viewModel.Inmates.Count)
+            if (args.ItemIndex == viewModel.Inmates.Count - 1)
             {
                 var tmp = viewModel.HtmlParser.PartialParseInmatesOnNextPage(viewModel.url, viewModel.Document);
                 foreach (var inmate in tmp.Item1)
