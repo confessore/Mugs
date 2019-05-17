@@ -6,26 +6,70 @@
 
     <ScrollView>
         <StackLayout Spacing="20" Padding="15">
-            <Image>
+            <Image HeightRequest="250" Aspect="AspectFit">
                 <Image.Source>
-                    <UriImageSource Uri="{Binding Inmate.ImageUrl}"/>
+                    <UriImageSource
+                        Uri="{Binding Inmate.ImageUrl}"
+                        CachingEnabled="True"/>
                 </Image.Source>
             </Image>
-            <Label Text="Booking Number:" FontSize="Medium" />
-            <Label Text="{Binding Inmate.BookingNumber}" FontSize="Small"/>
-            <Label Text="Date of Booking:" FontSize="Medium" />
-            <Label Text="{Binding Inmate.DateOfBooking}" FontSize="Small"/>
-            <Label Text="County:" FontSize="Medium" />
-            <Label Text="{Binding Inmate.County}" FontSize="Small"/>
-            <Label Text="Date of Birth:" FontSize="Medium" />
-            <Label Text="{Binding Inmate.DateOfBirth}" FontSize="Small"/>
-            <Label Text="Age:" FontSize="Medium" />
-            <Label Text="{Binding Inmate.Age}" FontSize="Small"/>
-            <Label Text="Gender:" FontSize="Medium" />
-            <Label Text="{Binding Inmate.Gender}" FontSize="Small"/>
-            <Label Text="Race:" FontSize="Medium" />
-            <Label Text="{Binding Inmate.Race}" FontSize="Small"/>
-            <Label Text="Charges:" FontSize="Medium" />
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Booking Number: " FontAttributes="Bold" FontSize="Medium"/>
+                        <Span Text="{Binding Inmate.BookingNumber}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Date of Booking: " FontAttributes="Bold" FontSize="Medium"/>
+                        <Span Text="{Binding Inmate.DateOfBooking}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="County: " FontAttributes="Bold" FontSize="Medium"/>
+                        <Span Text="{Binding Inmate.County}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Date of Birth: " FontAttributes="Bold" FontSize="Medium"/>
+                        <Span Text="{Binding Inmate.DateOfBirth}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Age: " FontAttributes="Bold" FontSize="Medium"/>
+                        <Span Text="{Binding Inmate.Age}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Gender: " FontAttributes="Bold" FontSize="Medium"/>
+                        <Span Text="{Binding Inmate.Gender}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Race: " FontAttributes="Bold" FontSize="Medium"/>
+                        <Span Text="{Binding Inmate.Race}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="Charges" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
             <ListView 
                 ItemsSource="{Binding Inmate.Charges}"
                 VerticalOptions="FillAndExpand"
@@ -34,8 +78,13 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
+                                <Label Text="Violation Code:" FontAttributes="Bold" FontSize="Medium" />
                                 <Label Text="{Binding ViolationCode}" FontSize="Small"/>
+                                <Label Text="Violation Description:" FontAttributes="Bold" FontSize="Medium" />
                                 <Label Text="{Binding ViolationDescription}" FontSize="Small"/>
+                                <Label Text="Bond Amount:" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding BondAmount}" FontSize="Small"/>
+                                <Label Text="" FontAttributes="Bold" FontSize="Medium" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

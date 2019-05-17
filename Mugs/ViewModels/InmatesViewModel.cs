@@ -15,10 +15,18 @@ namespace Mugs.ViewModels
         public HtmlDocument Document { get; set; }
         public string FormData { get; set; }
 
-        public string url = "http://www.mugshotsocala.com/";
+        public string URL = "http://www.mugshotsocala.com/";
 
         public InmatesViewModel()
         {
+            Title = "Browse";
+            Inmates = new ObservableCollection<Inmate>();
+            LoadInmatesCommand = new Command(async () => await ExecuteLoadInmatesCommand());
+        }
+
+        public InmatesViewModel(string url)
+        {
+            URL = url;
             Title = "Browse";
             Inmates = new ObservableCollection<Inmate>();
             LoadInmatesCommand = new Command(async () => await ExecuteLoadInmatesCommand());
@@ -34,8 +42,8 @@ namespace Mugs.ViewModels
             try
             {
                 Inmates.Clear();
-                Document = HtmlParser.GetHtmlDocumentFromUrl(url);
-                foreach (var inmate in HtmlParser.PartialParseInmatesOnPage(url, Document))
+                Document = HtmlParser.GetHtmlDocumentFromUrl(URL);
+                foreach (var inmate in HtmlParser.PartialParseInmatesOnPage(URL, Document))
                     Inmates.Add(inmate);
             }
             catch (Exception ex)

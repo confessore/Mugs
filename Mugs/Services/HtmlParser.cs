@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Web;
 
 namespace Mugs.Services
@@ -189,47 +188,91 @@ namespace Mugs.Services
 
         #region InmateDetailData
 
-        uint GetInmateDetailAge(HtmlDocument document) =>
-            Convert.ToUInt32(document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/b[.='Age:']/following-sibling::text()").InnerText);
+        string GetInmateDetailAge(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/b[.='Age:']/following-sibling::text()");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
-        uint GetInmateDetailBookingNumber(HtmlDocument document) =>
-            Convert.ToUInt32(document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/b[.='Booking Number:']/following-sibling::text()").InnerText);
+        string GetInmateDetailBookingNumber(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/b[.='Booking Number:']/following-sibling::text()");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
-        string GetInmateDetailDateOfBooking(HtmlDocument document) =>
-            document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/b[.='Booking on:']/following-sibling::text()").InnerText.Trim();
+        string GetInmateDetailDateOfBooking(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/b[.='Booking on:']/following-sibling::text()");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
         List<Charge> GetInmateDetailCharges(HtmlDocument document)
         {
             var tmp = new List<Charge>();
-            foreach (var node in document.DocumentNode.SelectNodes(@"//div[@class='mugshotsArrestInfoDetail']/ul/li"))
+            var nodes = document.DocumentNode.SelectNodes(@"//div[@class='mugshotsArrestInfoDetail']/ul/li");
+            if (nodes != null)
             {
-                tmp.Add(
-                    new Charge
-                    {
-                        ViolationCode = node.SelectSingleNode($@"{node.XPath}/b[.='Violation Code:']/following-sibling::text()").InnerText.Trim(),
-                        ViolationDescription = node.SelectSingleNode($@"{node.XPath}/b[.='Violation Description:']/following-sibling::text()").InnerText.Trim(),
-                    });
+                foreach (var node in nodes)
+                {
+                    var code = node.SelectSingleNode($@"{node.XPath}/b[.='Violation Code:']/following-sibling::text()");
+                    var description = node.SelectSingleNode($@"{node.XPath}/b[.='Violation Description:']/following-sibling::text()");
+                    var bond = node.SelectSingleNode($@"{node.XPath}/b[.='Bond Amount:']/following-sibling::text()");
+                    tmp.Add(
+                        new Charge
+                        {
+                            ViolationCode = code != null ? code.InnerText.Trim() : string.Empty,
+                            ViolationDescription = description != null ? description.InnerText.Trim() : string.Empty,
+                            BondAmount = bond != null ? bond.InnerText.Trim() : string.Empty
+                        });
+                }
             }
             return tmp;
         }
 
-        string GetInmateDetailCounty(HtmlDocument document) =>
-            document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/b[.='County:']/following-sibling::text()").InnerText.Trim();
+        string GetInmateDetailCounty(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/b[.='County:']/following-sibling::text()");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
-        string GetInmateDetailDateOfBirth(HtmlDocument document) =>
-            document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/b[.='Date of Birth:']/following-sibling::text()").InnerText.Trim();
+        string GetInmateDetailDateOfBirth(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/b[.='Date of Birth:']/following-sibling::text()");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
-        string GetInmateDetailGender(HtmlDocument document) =>
-            document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/b[.='Gender:']/following-sibling::text()").InnerText.Trim();
+        string GetInmateDetailGender(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/b[.='Gender:']/following-sibling::text()");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
-        string GetInmateDetailImageUrl(string url, HtmlDocument document) =>
-            url + document.DocumentNode.SelectSingleNode("//img[@id='ContentPlaceHolder1_imgMug']").GetAttributeValue("src", string.Empty).Trim();
+        string GetInmateDetailImageUrl(string url, HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//img[@id='ContentPlaceHolder1_imgMug']");
+            return tmp != null ? url + tmp.GetAttributeValue("src", string.Empty).Trim() : string.Empty;
+        }
 
-        string GetInmateDetailRace(HtmlDocument document) =>
-            document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/b[.='Race:']/following-sibling::text()").InnerText.Trim();
+        string GetInmateDetailRace(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/b[.='Race:']/following-sibling::text()");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
-        string GetInmateDetailName(HtmlDocument document) =>
-            document.DocumentNode.SelectSingleNode(@"//div[@class='mugshotsNameDetail']/h2").InnerText.Trim();
+        string GetInmateDetailName(HtmlDocument document)
+        {
+            var tmp = document.DocumentNode.SelectSingleNode(
+                @"//div[@class='mugshotsNameDetail']/h2");
+            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+        }
 
         #endregion
 

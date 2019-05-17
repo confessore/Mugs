@@ -20,18 +20,13 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Spacing="20" Padding="10">
-                            <Image>
+                            <Image HeightRequest="250" Aspect="AspectFit">
                                 <Image.Source>
                                     <UriImageSource
                                         Uri="{Binding ImageUrl}"
                                         CachingEnabled="True"/>
                                 </Image.Source>
                             </Image>
-                            <Label Text="{Binding ImageUrl}" 
-                                HorizontalTextAlignment="Center"
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
                             <Label Text="{Binding Name}" 
                                 HorizontalTextAlignment="Center"
                                 LineBreakMode="NoWrap"

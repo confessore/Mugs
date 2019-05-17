@@ -17,6 +17,13 @@ namespace Mugs.Views
             BindingContext = viewModel = new InmatesViewModel();
         }
 
+        public InmatesPage(string url)
+        {
+            InitializeComponent();
+
+            BindingContext = viewModel = new InmatesViewModel(url);
+        }
+
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var inmate = (Inmate)args.SelectedItem;
@@ -34,7 +41,7 @@ namespace Mugs.Views
         {
             if (args.ItemIndex == viewModel.Inmates.Count - 1)
             {
-                var tmp = viewModel.HtmlParser.PartialParseInmatesOnNextPage(viewModel.url, viewModel.Document);
+                var tmp = viewModel.HtmlParser.PartialParseInmatesOnNextPage(viewModel.URL, viewModel.Document);
                 foreach (var inmate in tmp.Item1)
                     viewModel.Inmates.Add(inmate);
                 viewModel.Document = tmp.Item2;
