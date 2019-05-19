@@ -1,25 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ads="clr-namespace:Mugs.Ads"
              x:Class="Mugs.Views.InmatesPage"
-              Title="{Binding Title}"
-             x:Name="BrowseItemsPage">
+             x:Name="BrowseItemsPage"
+             Title="{Binding Title}">
 
-    <StackLayout>
-        <ListView x:Name="ItemsListView"
-                ItemsSource="{Binding Inmates}"
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true"
-                RefreshCommand="{Binding LoadInmatesCommand}"
-                IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected"
-                ItemAppearing="OnItemAppearing">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView
+            x:Name="ItemsListView"
+            Grid.Row="0"
+            ItemsSource="{Binding Inmates}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            HasUnevenRows="true"
+            RefreshCommand="{Binding LoadInmatesCommand}"
+            IsPullToRefreshEnabled="true"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            CachingStrategy="RecycleElement"
+            ItemSelected="OnItemSelected"
+            ItemAppearing="OnItemAppearing">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Spacing="20" Padding="10">
+                        <StackLayout>
                             <Image HeightRequest="250" Aspect="AspectFit">
                                 <Image.Source>
                                     <UriImageSource
@@ -27,21 +35,24 @@
                                         CachingEnabled="True"/>
                                 </Image.Source>
                             </Image>
-                            <Label Text="{Binding Name}" 
+                            <Label 
+                                Text="{Binding Name}" 
                                 HorizontalTextAlignment="Center"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                            <Label Text="{Binding DateOfBooking}" 
+                                FontSize="13"/>
+                            <Label 
+                                Text="{Binding DateOfBooking}" 
                                 HorizontalTextAlignment="Center"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                                FontSize="13"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
-    
+        <ads:AdMobMain BackgroundColor="Transparent" Grid.Row="1" HeightRequest="60" WidthRequest="468"/>
+    </Grid>
+
 </ContentPage>

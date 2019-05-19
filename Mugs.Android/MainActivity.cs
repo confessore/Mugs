@@ -1,11 +1,8 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Android.Gms.Ads;
 using Android.OS;
+using Android.Runtime;
 
 namespace Mugs.Droid
 {
@@ -19,6 +16,7 @@ namespace Mugs.Droid
 
             base.OnCreate(savedInstanceState);
 
+            MobileAds.Initialize(ApplicationContext, "ca-app-pub-1561048054448608~3982623910");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
