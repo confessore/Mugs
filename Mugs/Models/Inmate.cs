@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mugs.Models
+namespace Mugs.Items
 {
     public class Inmate
     {

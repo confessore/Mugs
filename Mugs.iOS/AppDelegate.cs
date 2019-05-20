@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
+using Google.MobileAds;
 using UIKit;
 
 namespace Mugs.iOS
@@ -22,6 +19,7 @@ namespace Mugs.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            MobileAds.Configure("ca-app-pub-1561048054448608~4703682797");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

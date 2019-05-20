@@ -1,4 +1,4 @@
-﻿using Mugs.Models;
+﻿using Mugs.Items;
 
 namespace Mugs.ViewModels
 {

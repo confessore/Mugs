@@ -1,5 +1,5 @@
 ﻿using HtmlAgilityPack;
-using Mugs.Models;
+using Mugs.Items;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,4 +1,4 @@
-﻿namespace Mugs.Models
+﻿namespace Mugs.Items
 {
     public class Charge
     {

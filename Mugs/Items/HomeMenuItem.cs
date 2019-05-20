@@ -1,4 +1,4 @@
-﻿namespace Mugs.Models
+﻿namespace Mugs.Items
 {
     public enum MenuItemType
     {
@@ -30,6 +30,7 @@
         SpartanburgSC,
         AustinTX,
     }
+
     public class HomeMenuItem
     {
         public MenuItemType Id { get; set; }
