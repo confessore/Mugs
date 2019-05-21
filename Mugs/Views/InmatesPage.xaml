@@ -6,6 +6,14 @@
              x:Name="BrowseItemsPage"
              Title="{Binding Title}">
 
+    <NavigationPage.TitleView>
+        <SearchBar
+            x:Name="Search"
+            Placeholder="Search Inmates"
+            SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
+            SearchCommand="{Binding SearchInmatesCommand}"/>
+    </NavigationPage.TitleView>
+    
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -52,7 +60,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ads:AdMobMain BackgroundColor="Transparent" Grid.Row="1" HeightRequest="60" WidthRequest="468"/>
+        <ads:AdMobMain BackgroundColor="Transparent" Grid.Row="1" HeightRequest="50"/>
     </Grid>
 
 </ContentPage>

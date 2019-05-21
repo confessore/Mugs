@@ -131,6 +131,18 @@ namespace Mugs.Services
             return new Tuple<List<Inmate>, HtmlDocument>(new List<Inmate>(), document);
         }
 
+        public Tuple<List<Inmate>, HtmlDocument> PartialParseInmatesOnNextPage(string url, string uri, HtmlDocument document)
+        {
+            if (GetCurrentPage(document) != GetTotalPages(document))
+            {
+                var form = FormData(GetEventTarget(), GetViewState(document), GetViewStateGenerator(document),
+                    GetEventValidation(document), GetNextPage(document));
+                document = GetHtmlDocumentFromString(PostUrl(url + uri, form));
+                return new Tuple<List<Inmate>, HtmlDocument>(PartialParseInmatesOnPage(url, document), document);
+            }
+            return new Tuple<List<Inmate>, HtmlDocument>(new List<Inmate>(), document);
+        }
+
         #endregion
 
         #region IndividualParse

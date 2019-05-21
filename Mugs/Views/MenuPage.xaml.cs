@@ -18,8 +18,8 @@ namespace Mugs.Views
             {
                 new HomeMenuItem { Id = MenuItemType.GadsdenAL, Title = "Gadsden, AL" },
                 new HomeMenuItem { Id = MenuItemType.DaytonaFL, Title = "Daytona, FL" },
-                new HomeMenuItem { Id = MenuItemType.GainesvilleFL, Title = "Gainesville, FL"},
-                new HomeMenuItem { Id = MenuItemType.JacksonvilleFL, Title = "Jacksonville, FL"},
+                new HomeMenuItem { Id = MenuItemType.GainesvilleFL, Title = "Gainesville, FL" },
+                new HomeMenuItem { Id = MenuItemType.JacksonvilleFL, Title = "Jacksonville, FL" },
                 new HomeMenuItem { Id = MenuItemType.LakelandFL, Title = "Lakeland, FL" },
                 new HomeMenuItem { Id = MenuItemType.LeesburgFL, Title = "Leesburg, FL" },
                 new HomeMenuItem { Id = MenuItemType.OcalaFL, Title = "Ocala, FL" },

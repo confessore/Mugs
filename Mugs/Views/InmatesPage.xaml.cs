@@ -13,15 +13,15 @@ namespace Mugs.Views
         public InmatesPage()
         {
             InitializeComponent();
-
             BindingContext = viewModel = new InmatesViewModel();
+            viewModel.Navigation = Navigation;
         }
 
-        public InmatesPage(string url)
+        public InmatesPage(string url, string uri = "")
         {
             InitializeComponent();
-
-            BindingContext = viewModel = new InmatesViewModel(url);
+            BindingContext = viewModel = new InmatesViewModel(url, uri);
+            viewModel.Navigation = Navigation;
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -41,7 +41,9 @@ namespace Mugs.Views
         {
             if (args.ItemIndex == viewModel.Inmates.Count - 1)
             {
-                var tmp = viewModel.HtmlParser.PartialParseInmatesOnNextPage(viewModel.URL, viewModel.Document);
+                var tmp = string.IsNullOrEmpty(viewModel.URI) ?
+                    viewModel.HtmlParser.PartialParseInmatesOnNextPage(viewModel.URL, viewModel.Document) :
+                    viewModel.HtmlParser.PartialParseInmatesOnNextPage(viewModel.URL, viewModel.URI, viewModel.Document);
                 foreach (var inmate in tmp.Item1)
                     viewModel.Inmates.Add(inmate);
                 viewModel.Document = tmp.Item2;

@@ -84,13 +84,13 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Label Text="Violation Code:" FontAttributes="Bold" FontSize="Medium" />
+                                    <Label Text="Violation Code:" FontAttributes="Bold" FontSize="Medium"/>
                                     <Label Text="{Binding ViolationCode}" FontSize="Small"/>
-                                    <Label Text="Violation Description:" FontAttributes="Bold" FontSize="Medium" />
+                                    <Label Text="Violation Description:" FontAttributes="Bold" FontSize="Medium"/>
                                     <Label Text="{Binding ViolationDescription}" FontSize="Small"/>
-                                    <Label Text="Bond Amount:" FontAttributes="Bold" FontSize="Medium" />
+                                    <Label Text="Bond Amount:" FontAttributes="Bold" FontSize="Medium"/>
                                     <Label Text="{Binding BondAmount}" FontSize="Small"/>
-                                    <Label Text="" FontAttributes="Bold" FontSize="Medium" />
+                                    <Label Text="" FontAttributes="Bold" FontSize="Medium"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -98,7 +98,7 @@
                 </ListView>
             </StackLayout>
         </ScrollView>
-        <ads:AdMobDetail BackgroundColor="Transparent" Grid.Row="1" HeightRequest="60" WidthRequest="468"/>
+        <ads:AdMobDetail BackgroundColor="Transparent" Grid.Row="1" HeightRequest="50"/>
     </Grid>
 
 </ContentPage>
