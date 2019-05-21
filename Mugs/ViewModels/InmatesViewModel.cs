@@ -50,12 +50,15 @@ namespace Mugs.ViewModels
 
             try
             {
-                Inmates.Clear();
-                Document = string.IsNullOrEmpty(URI) ?
-                    HtmlParser.GetHtmlDocumentFromUrl(URL) :
-                    HtmlParser.GetHtmlDocumentFromUrl(URL + URI);
-                foreach (var inmate in HtmlParser.PartialParseInmatesOnPage(URL, Document))
-                    Inmates.Add(inmate);
+                await Task.Run(() =>
+                {
+                    Inmates.Clear();
+                    Document = string.IsNullOrEmpty(URI) ?
+                        HtmlParser.GetHtmlDocumentFromUrl(URL) :
+                        HtmlParser.GetHtmlDocumentFromUrl(URL + URI);
+                    foreach (var inmate in HtmlParser.PartialParseInmatesOnPage(URL, Document))
+                        Inmates.Add(inmate);
+                });
             }
             catch (Exception ex)
             {
