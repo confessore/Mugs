@@ -9,7 +9,7 @@
     <NavigationPage.TitleView>
         <SearchBar
             x:Name="Search"
-            Placeholder="Search Inmates"
+            Placeholder="Search"
             SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
             SearchCommand="{Binding SearchInmatesCommand}"/>
     </NavigationPage.TitleView>

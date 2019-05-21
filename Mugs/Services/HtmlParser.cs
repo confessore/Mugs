@@ -204,21 +204,21 @@ namespace Mugs.Services
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/b[.='Age:']/following-sibling::text()");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         string GetInmateDetailBookingNumber(HtmlDocument document)
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/b[.='Booking Number:']/following-sibling::text()");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         string GetInmateDetailDateOfBooking(HtmlDocument document)
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/b[.='Booking on:']/following-sibling::text()");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         List<Charge> GetInmateDetailCharges(HtmlDocument document)
@@ -248,21 +248,21 @@ namespace Mugs.Services
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/b[.='County:']/following-sibling::text()");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         string GetInmateDetailDateOfBirth(HtmlDocument document)
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/b[.='Date of Birth:']/following-sibling::text()");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         string GetInmateDetailGender(HtmlDocument document)
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/b[.='Gender:']/following-sibling::text()");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         string GetInmateDetailImageUrl(string url, HtmlDocument document)
@@ -276,14 +276,14 @@ namespace Mugs.Services
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/b[.='Race:']/following-sibling::text()");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         string GetInmateDetailName(HtmlDocument document)
         {
             var tmp = document.DocumentNode.SelectSingleNode(
                 @"//div[@class='mugshotsNameDetail']/h2");
-            return tmp != null ? tmp.InnerText.Trim() : string.Empty;
+            return tmp != null ? tmp.InnerText.Trim() : "[not available]";
         }
 
         #endregion

@@ -62,7 +62,7 @@
                 <Label>
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Gender: " FontAttributes="Bold" FontSize="Medium"/>
+                            <Span Text="Biological Sex: " FontAttributes="Bold" FontSize="Medium"/>
                             <Span Text="{Binding Inmate.Gender}" FontSize="Small"/>
                         </FormattedString>
                     </Label.FormattedText>
@@ -70,7 +70,7 @@
                 <Label>
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Race: " FontAttributes="Bold" FontSize="Medium"/>
+                            <Span Text="Skin Tone: " FontAttributes="Bold" FontSize="Medium"/>
                             <Span Text="{Binding Inmate.Race}" FontSize="Small"/>
                         </FormattedString>
                     </Label.FormattedText>
